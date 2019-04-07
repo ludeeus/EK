@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+###############################################
+#
+#  Run Elasticsearch
+#
+###############################################
+
+echo "Starting Elasticsearch"
+
+cd /usr/local/elasticsearch-"${ELASTIC_VERSION}"/bin || exit 1
+
+exec s6-setuidgid ekuser ./elasticsearch

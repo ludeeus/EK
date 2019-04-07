@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+###############################################
+#
+#  Run Kibana
+#
+###############################################
+
+echo "Starting Kibana"
+s6-sleep 20
+cd /usr/local/kibana-"${ELASTIC_VERSION}"-linux-x86_64/bin || exit 1
+
+exec s6-setuidgid ekuser ./kibana
