@@ -53,6 +53,9 @@ RUN sed -i 's/--max-http-header-size=65536//g' /usr/local/kibana-${ELASTIC_VERSI
 
 # Fix configuration
 RUN sed -i 's/#server.host: "localhost"/server.host: "0.0.0.0"/g' /usr/local/kibana-${ELASTIC_VERSION}-linux-x86_64/config/kibana.yml
+RUN sed -i 's/#network.host: 192.168.0.1/network.host: 0.0.0.0/g' /usr/local/elasticsearch-${ELASTIC_VERSION}/config/elasticsearch.yml
+
+
 
 # Entrypoint
 ENTRYPOINT [ "/init" ]
